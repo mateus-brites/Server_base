@@ -1,4 +1,4 @@
-import express from 'express'
+import express, { response } from 'express'
 import { myDataSource } from "./app-data-source"
 
 myDataSource
@@ -14,4 +14,8 @@ myDataSource
 const app = express();
 app.use(express.json())
 
-app.listen(3333, () => console.log('server is runnig'))
+app.get('/',(request, response) => {
+    return response.json({message: 'Bem vindo'})
+})
+
+app.listen(3333, () => console.log('server is runnig in https://localhost:3333/'))
